@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt-get update
-apt-get install binfmt-support qemu-user-static apt-cacher-ng ca-certificates curl binutils git-core kmod
+apt-get install binfmt-support qemu-user-static apt-cacher-ng ca-certificates curl binutils git-core wget curl kmod
 
 cd /usr/src
 git clone git://git.liw.fi/vmdebootstrap
