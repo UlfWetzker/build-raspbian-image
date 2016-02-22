@@ -26,7 +26,7 @@ vmdebootstrap \
     --sudo \
     --enable-dhcp \
     --log=log.debug \
-    --log-level=info \
+    --log-level=debug \
     --log-keep=1 \
     --verbose \
     --no-kernel \
