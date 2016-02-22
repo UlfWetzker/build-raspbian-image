@@ -1,6 +1,6 @@
 build-raspbian-image
 ====================
-Builds a minimal [Raspbian](http://raspbian.org/) Jessie image. Source: https://github.com/niklasf/build-raspbian-image
+Builds a minimal [Raspbian](http://raspbian.org/) Jessie image. Based on: https://github.com/niklasf/build-raspbian-image
 
 Login: `root`  
 Password: `raspberry`
