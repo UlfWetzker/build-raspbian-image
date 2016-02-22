@@ -1,21 +1,5 @@
 #!/bin/bash
 
-# Used by rpi-update
-pkgs="git-core binutils ca-certificates wget curl kmod"
-# Stuff needed by debootstrap (need /etc/hosts)
-pkgs="$pkgs netbase"
-# Useful firmware packages to get free hardware working
-pkgs="$pkgs firmware-linux-free"
-# Other packages useful to get a debuggable environment
-pkgs="$pkgs psmisc bootlogd tcpdump iputils-ping iftop net-tools less man-db"
-# Other recommended packages
-pkgs="$pkgs fake-hwclock anacron whiptail nano vim-tiny apt-utils isc-dhcp-client openssh-server needrestart"
-#pkgs="$pkgs apt-cron fail2ban"
-
-for p in $pkgs ; do
-    options+=" --package $p"
-done
-
 vmdebootstrap \
     --arch armhf \
     --distribution stretch \
@@ -38,6 +22,5 @@ vmdebootstrap \
     --hostname raspberry \
     --foreign /usr/bin/qemu-arm-static \
     --debootstrapopts="variant=minbase keyring=`pwd`/raspbian.org.gpg" \
-    --customize `pwd`/customize.sh \
     --pkglist \
-    $options
+    --customize `pwd`/customize.sh
