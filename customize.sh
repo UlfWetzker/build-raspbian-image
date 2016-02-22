@@ -60,7 +60,7 @@ chroot $ROOTDIR apt-get install -y fake-hwclock ntp anacron whiptail nano vim-ti
 
 # Install raspi-config script
 wget https://raw.githubusercontent.com/RPi-Distro/raspi-config/master/raspi-config -O $ROOTDIR/usr/bin/raspi-config
-chmod a+x $ROOTDIR/usr/bin/rpi-update
+chmod a+x $ROOTDIR/usr/bin/raspi-config
 chroot $ROOTDIR apt-get install -y parted
 
 # Create a swapfile.
