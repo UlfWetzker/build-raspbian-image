@@ -5,7 +5,7 @@ vmdebootstrap \
     --distribution jessie \
     --mirror http://archive.raspbian.org/raspbian \
     --image `date +raspbian-%Y%m%d.img` \
-    --size 2000M \
+    --size 1024M \
     --bootsize 64M \
     --boottype vfat \
     --root-password raspberry \
