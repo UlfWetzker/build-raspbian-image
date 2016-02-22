@@ -9,7 +9,7 @@ pkgs="$pkgs firmware-linux-free"
 # Other packages useful to get a debuggable environment
 pkgs="$pkgs psmisc bootlogd tcpdump iputils-ping iftop net-tools less man-db"
 # Other Stuff
-pkgs="$pkgs fake-hwclock anacron whilptail nano vim-tiny apt-utils isc-dhcp-client openssh-server"
+pkgs="$pkgs fake-hwclock anacron whilptail nano vim-tiny apt-utils isc-dhcp-client openssh-server needrestart"
 
 for p in $pkgs ; do
     options+=" --package $p"
