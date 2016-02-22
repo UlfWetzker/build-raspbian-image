@@ -20,7 +20,7 @@ chroot $ROOTDIR apt-get update
 
 #chroot $ROOTDIR apt-get install -y locales tzdata
 echo "LANG=de_DE.UTF-8" > $ROOTDIR/etc/default/locale
-chroot $ROOTDIR locale-gen de_DE.UTF-8 UTF-8
+#chroot $ROOTDIR locale-gen de_DE.UTF-8 UTF-8
 #chroot $ROOTDIR dpkg-reconfigure locales
 TIMEZONE="Europe/Berlin"
 echo $TIMEZONE > $ROOTDIR/etc/timezone
