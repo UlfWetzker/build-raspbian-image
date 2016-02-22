@@ -55,13 +55,21 @@ chroot $ROOTDIR apt-get install -y firmware-linux-free
 # Other packages useful to get a debuggable environment
 chroot $ROOTDIR apt-get install -y psmisc bootlogd tcpdump iputils-ping iftop net-tools less man-db
 # Other recommended packages
-chroot $ROOTDIR apt-get install -y fake-hwclock raspi-config ntp anacron whiptail nano vim-tiny apt-utils isc-dhcp-client needrestart
+chroot $ROOTDIR apt-get install -y fake-hwclock ntp anacron whiptail nano vim-tiny apt-utils isc-dhcp-client needrestart
 #chroot $ROOTDIR apt-get install -y apt-cron fail2ban
+
+# Install raspi-config script
+wget https://raw.githubusercontent.com/RPi-Distro/raspi-config/master/raspi-config -O $ROOTDIR/usr/bin/raspi-config
+chmod a+x $ROOTDIR/usr/bin/rpi-update
+chroot $ROOTDIR apt-get install -y parted
 
 # Create a swapfile.
 #dd if=/dev/zero of=$ROOTDIR/var/swapfile bs=1M count=512
 #chroot $ROOTDIR mkswap /var/swapfile
 #echo /var/swapfile none swap sw 0 0 >> $ROOTDIR/etc/fstab
+
+# Cleanups
+chroot $ROOTDIR apt-get clean -y
 
 # Done.
 rm $ROOTDIR/usr/sbin/policy-rc.d
