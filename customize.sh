@@ -72,5 +72,5 @@ chroot $ROOTDIR apt-get install -y parted
 chroot $ROOTDIR apt-get clean -y
 
 # Done.
-rm $ROOTDIR/usr/sbin/policy-rc.d
-rm $ROOTDIR/etc/apt/apt.conf.d/50apt-cacher-ng
+rm -f $ROOTDIR/usr/sbin/policy-rc.d
+rm -f $ROOTDIR/etc/apt/apt.conf.d/50apt-cacher-ng
