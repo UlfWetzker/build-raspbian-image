@@ -16,6 +16,7 @@ echo "Acquire::http { Proxy \"http://[::1]:3142\"; };" > $ROOTDIR/etc/apt/apt.co
 cp etc/apt/sources.list $ROOTDIR/etc/apt/sources.list
 cp etc/apt/apt.conf.d/50raspi $ROOTDIR/etc/apt/apt.conf.d/50raspi
 chroot $ROOTDIR apt-get update
+chroot $ROOTDIR apt-get install -yf aptitude
 
 # Regenerate SSH host keys on first boot.
 chroot $ROOTDIR aptitude install -yf openssh-server
