@@ -22,5 +22,6 @@ vmdebootstrap \
     --hostname raspberry \
     --foreign /usr/bin/qemu-arm-static \
     --debootstrapopts="variant=minbase keyring=`pwd`/raspbian.org.gpg" \
+    --package netbase \
     --pkglist \
     --customize `pwd`/customize.sh
