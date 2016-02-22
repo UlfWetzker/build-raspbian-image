@@ -7,7 +7,9 @@ pkgs="$pkgs netbase"
 # Useful firmware packages to get free hardware working
 pkgs="$pkgs firmware-linux-free"
 # Other packages useful to get a debuggable environment
-pkgs="$pkgs psmisc bootlogd tcpdump iputils-ping iftop vim-tiny"
+pkgs="$pkgs psmisc bootlogd tcpdump iputils-ping iftop net-tools less man-db"
+# Other Stuff :)
+pkgs="$pkgs fake-hwclock anacron whilptail nano vim-tiny apt-utils isc-dhcp-client curl"
 
 for p in $pkgs ; do
     options+=" --package $p"
