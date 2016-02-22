@@ -2,9 +2,9 @@
 
 vmdebootstrap \
     --arch armhf \
-    --distribution stretch \
+    --distribution jessie \
     --mirror http://archive.raspbian.org/raspbian \
-    --image `date +raspbian-stretch-%Y%m%d.img` \
+    --image `date +raspbian-%Y%m%d.img` \
     --size 2000M \
     --bootsize 64M \
     --boottype vfat \
@@ -22,6 +22,5 @@ vmdebootstrap \
     --hostname raspberry \
     --foreign /usr/bin/qemu-arm-static \
     --debootstrapopts="variant=minbase keyring=`pwd`/raspbian.org.gpg" \
-    --package netbase aptitude \
     --pkglist \
     --customize `pwd`/customize.sh
