@@ -8,8 +8,9 @@ pkgs="$pkgs netbase"
 pkgs="$pkgs firmware-linux-free"
 # Other packages useful to get a debuggable environment
 pkgs="$pkgs psmisc bootlogd tcpdump iputils-ping iftop net-tools less man-db"
-# Other Stuff
+# Other recommended packages
 pkgs="$pkgs fake-hwclock anacron whiptail nano vim-tiny apt-utils isc-dhcp-client openssh-server needrestart"
+#pkgs="$pkgs apt-cron fail2ban"
 
 for p in $pkgs ; do
     options+=" --package $p"
