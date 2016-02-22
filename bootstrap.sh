@@ -5,7 +5,8 @@ vmdebootstrap \
     --distribution jessie \
     --mirror http://archive.raspbian.org/raspbian \
     --image `date +raspbian-%Y%m%d.img` \
-    --size 820M \
+    --size 600M \
+    --roottype ext4 \
     --bootsize 64M \
     --boottype vfat \
     --root-password raspberry \
@@ -22,5 +23,6 @@ vmdebootstrap \
     --hostname raspberry \
     --foreign /usr/bin/qemu-arm-static \
     --debootstrapopts="variant=minbase keyring=`pwd`/raspbian.org.gpg" \
+    --package netbase \
     --pkglist \
     --customize `pwd`/customize.sh
