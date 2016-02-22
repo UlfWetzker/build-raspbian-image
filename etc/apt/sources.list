@@ -1,4 +1,4 @@
-deb http://archive.raspbian.org/raspbian/ jessie main contrib non-free
+deb http://archive.raspbian.org/raspbian/ jessie main firmware contrib non-free
 deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free
 
 #deb http://archive.raspbian.org/raspbian/ stretch main contrib non-free
