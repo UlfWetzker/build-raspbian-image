@@ -18,7 +18,7 @@ cp etc/apt/apt.conf.d/50raspi $ROOTDIR/etc/apt/apt.conf.d/50raspi
 chroot $ROOTDIR apt-get update
 
 # Regenerate SSH host keys on first boot.
-#chroot $ROOTDIR apt-get install -y openssh-server
+chroot $ROOTDIR aptitude install -yf openssh-server
 cp etc/rc.local $ROOTDIR/etc/rc.local
 chmod a+x $ROOTDIR/etc/rc.local
 rm -f $ROOTDIR/etc/ssh/ssh_host_*
@@ -34,17 +34,20 @@ cp etc/network/interfaces $ROOTDIR/etc/network/interfaces
 
 # Install kernel.
 mkdir -p $ROOTDIR/lib/modules
-#chroot $ROOTDIR apt-get install -y ca-certificates curl binutils git-core kmod
+chroot $ROOTDIR aptitude install -yf git-core binutils ca-certificates wget curl kmod
 wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O $ROOTDIR/usr/local/sbin/rpi-update
 chmod a+x $ROOTDIR/usr/local/sbin/rpi-update
 SKIP_WARNING=1 SKIP_BACKUP=1 ROOT_PATH=$ROOTDIR BOOT_PATH=$ROOTDIR/boot $ROOTDIR/usr/local/sbin/rpi-update
 
 # Install extra packages.
-#chroot $ROOTDIR apt-get install -y apt-utils vim nano whiptail netbase less iputils-ping net-tools isc-dhcp-client man-db
-#chroot $ROOTDIR apt-get install -y anacron fake-hwclock
 
-# Install other recommended packages.
-#apt-get install ntp apt-cron fail2ban needrestart
+# Useful firmware packages to get free hardware working
+chroot $ROOTDIR aptitude install -y firmware-linux-free
+# Other packages useful to get a debuggable environment
+chroot $ROOTDIR aptitude install -y psmisc bootlogd tcpdump iputils-ping iftop net-tools less man-db
+# Other recommended packages
+chroot $ROOTDIR aptitude install -y fake-hwclock ntp anacron whiptail nano vim-tiny apt-utils isc-dhcp-client needrestart
+#chroot $ROOTDIR aptitude install -y apt-cron fail2ban
 
 # Create a swapfile.
 #dd if=/dev/zero of=$ROOTDIR/var/swapfile bs=1M count=512
